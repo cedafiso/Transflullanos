@@ -17,8 +17,8 @@ const NavBar = () => {
         <ul>
           <li><Link to="/" class="active">Home</Link></li>
           <li><Link to="/products">Productos</Link></li>
-          <li><Link to="/portfolio">Nosotros</Link></li>
-          <li><Link to="/contact">Contacto</Link></li>
+          <li><Link to="/nosotros">Nosotros</Link></li>
+          <li><Link to="/contactos">Contacto</Link></li>
           <li><Link to="/login" class="getstarted">Iniciar Sesión</Link></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

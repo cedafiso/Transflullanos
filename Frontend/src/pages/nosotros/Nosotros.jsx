@@ -1,12 +1,12 @@
 import NavBar from "../../components/NavBar";
 
-const Products = () => {
+const Nosotros = () => {
 	return ( 
 		<div>
 		<NavBar/>
-			<h1>HOLIII DE PRODUCTOS</h1>
+			<h1>HOLII NOSOTROS</h1>
 		</div>
 	 );
 }
  
-export default Products;
+export default Nosotros;
