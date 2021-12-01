@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 #header .logo a {
-  color: #556270;
+  color: #0077B6;
 }
 #header .logo img {
   max-height: 40px;
@@ -125,10 +125,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #d9232d;
+  color: #0077B6;
 }
 .navbar .getstarted, .navbar .getstarted:focus {
-  background: #d9232d;
+  background: #0077B6;
   padding: 8px 25px;
   margin-left: 30px;
   border-radius: 4px;
@@ -289,9 +289,15 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background-color: rgba(63, 73, 83, 0.8);
-  overflow: hidden;
-  position: relative;
+  background-image: url("https://rclglobalcargo.com/wp-content/uploads/Container-ship-sea-clouds_1920x1080.jpg");
+  height: 700px; /* You must set a specified height */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  }
+#imagenhome {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
 }
 #hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
   position: absolute;
@@ -389,7 +395,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero .carousel-indicators li.active {
   opacity: 1;
-  background: #d9232d;
+  background: #235dd9;
 }
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
@@ -404,10 +410,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  background: #d9232d;
+  background: #2344d9;
 }
 #hero .btn-get-started:hover {
-  background: #df3740;
+  background: #37df40;
 }
 @media (max-width: 992px) {
   #hero {

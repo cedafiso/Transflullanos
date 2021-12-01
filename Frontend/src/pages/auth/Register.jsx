@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import image from "./img/containerlogo.png"
+import image from "./img/logo.png"
 
 const Register = () => {
 	return ( 
 		<div className="content-all-registrer">
 		<div className="ctn-form">
-          {/* <img src={logoR} alt="Logo ferremax" className="logo" /> */}
-          <h1 className="tittle">REGISTRARTE</h1>
+          <h1 id="titulo_register">REGISTRARTE</h1>
           <p>Es rápido y fácil.</p>
           <form>
             <label htmlFor="">Número de Identificación</label>
@@ -47,8 +46,7 @@ const Register = () => {
               </option>
               <option value="Administrador">Administrador</option>
               <option value="Moderador">Vendedor</option>
-              <option value="Moderador">Moderador</option>
-              <option value="Proveedor">Proveedor</option>
+              <option value="Moderador">Operario</option>
             </select>
             <label htmlFor="">Contraseña</label>
             <input

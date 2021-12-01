@@ -12,6 +12,7 @@ const Slide = () => {
 	
 			{/* <!-- Slide 1 --> */}
 
+<<<<<<< HEAD
 			<div className="carousel-item active" id="slide1">
 			  <div className="carousel-container">
 				<div className="container">
@@ -42,12 +43,22 @@ const Slide = () => {
 				  <h2 className="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
 				  <p className="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
 				  <a href="#about" className="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+=======
+			<div class="carousel-item active" id="slide1">
+			  <div class="carousel-container">
+				<div class="container">
+				  <h2 class="animate__animated animate__fadeInDown">Bienvenido a <span>TRANSFLULLANOS</span></h2>
+				  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis repellendus ea molestias est non reiciendis consectetur facere fugit, sapiente recusandae sit, inventore eius officia, quia adipisci ipsa earum officiis eos.</p> 
+				  
+				  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+>>>>>>> 5bf3b085f043d8263d98b71ee74a413f30184a2d
 				</div>
 			  </div>
 			</div>
 	
 		  </div>
 	
+<<<<<<< HEAD
 		  <a className="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
 			<span className="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
 		  </a>
@@ -55,6 +66,8 @@ const Slide = () => {
 		  <a className="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
 			<span className="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
 		  </a>
+=======
+>>>>>>> 5bf3b085f043d8263d98b71ee74a413f30184a2d
 	
 		</div>
 	  </section>.
