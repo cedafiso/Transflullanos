@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import image from "./img/.png"
+
 const Login = () => {
 	return ( 
 		<div>
