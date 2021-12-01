@@ -909,7 +909,7 @@ section {
 .features .nav-link:hover {
   color: #d9232d;
 }
-.features .nav-link.active {
+.features .nav-link:active {
   color: #d9232d;
   border-color: #d9232d;
 }
