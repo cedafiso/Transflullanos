@@ -4,7 +4,7 @@ const NavBar = () => {
 	return ( 
 		<div>
 			{/* <!-- ======= Header ======= --> */}
-    <header id="header" className="d-flex align-items-center">
+    <header id="header" className="fixed-top d-flex align-items-center">
     <div className="container d-flex align-items-center">
 
       <h1 className="logo me-auto"><Link to="/">Transflullanos</Link></h1>
