@@ -1,10 +1,11 @@
 import NavBar from "../../components/NavBar";
+import Productos from "../../components/FormProducts"
 
 const Products = () => {
 	return ( 
 		<div>
 		<NavBar/>
-			<h1>HOLIII DE PRODUCTOS</h1>
+		<Productos/>
 		</div>
 	 );
 }
