@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "./img/logo.png"
+import image from "./img/login.png"
 
 const Register = () => {
 	return ( 
