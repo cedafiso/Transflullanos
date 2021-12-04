@@ -1,5 +1,5 @@
 #accordionSidebar {
-    background-image: linear-gradient(to right top, #000826, #010b2d, #000e35, #00103c, #001143, #001249, #00134f, #011355, #01155c, #011763, #01186b, #021a72);
+    background-image: linear-gradient(to right top, #03045E, #011167, #001d70, #002778, #003180, #003a88, #00438f, #004c96, #00579f, #0062a7, #006caf, #0077b6);
 }
 
 #error404 {
@@ -54,7 +54,7 @@
 }
 
 #titulo_register {
-    color: #0077B6
+    color: #0077B6;
 }
 
 p {
@@ -79,7 +79,7 @@ select {
     border: 0px;
     outline: 0px;
     border-bottom: 1px solid rgba(1, 17, 76);
-    color: #021A72;
+    color: #03045E;
     font-size: 17.5px;
 }
 
@@ -98,7 +98,7 @@ input[type="number"] {
     border: 0px;
     outline: 0px;
     border-bottom: 1px solid rgb(1, 17, 76);
-    color: #021A72;
+    color: #03045E;
     font-size: 17.5px;
 }
 
@@ -108,7 +108,7 @@ input[type="submit"] {
     margin-top: 30px;
     color: white;
     border: 0px;
-    background: linear-gradient(268.44deg, #000826 -3.37%, #021A72 100%);
+    background: linear-gradient(268.44deg, #03045E -3.37%, #023E8A 100%);
     box-shadow: 0px 10px 20px rgba(66, 129, 15, 0.2);
     border-radius: 5px;
     font-weight: 300;
@@ -117,7 +117,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background: linear-gradient(268.44deg, #021A72 -3.37%, #000826 100%);
+    background: linear-gradient(268.44deg, #023E8A -3.37%, #03045E 100%);
 }
 
 .text-footer {
@@ -129,7 +129,7 @@ input[type="submit"]:hover {
 }
 
 .text-footer a {
-    color: #021A72;
+    color: #03045E;
     font-weight: 500;
 }
 
@@ -138,7 +138,7 @@ input[type="submit"]:hover {
 
 .ctn-image {
     width: 80%;
-    background: linear-gradient(180deg, #021A72 0%, #01114C 100%, #000826 100%);
+    background: linear-gradient(180deg, #03045E 0%, #023e8a 100%, #000826 100%);
     /*   border-radius: 0 10px 10px 0; */
     position: relative;
 }
