@@ -5,13 +5,9 @@ const Slide = () => {
 	<div>
 		<section id="hero">
 		<div id="heroCarousel" data-bs-interval="5000" className="carousel slide carousel-fade" data-bs-ride="carousel">
-	
 		  <ol className="carousel-indicators" id="hero-carousel-indicators"></ol>
-	
 		  <div className="carousel-inner" role="listbox">
-	
 			{/* <!-- Slide 1 --> */}
-
 			<div class="carousel-item active" id="slide1">
 			  <div class="carousel-container">
 				<div class="container">
@@ -22,10 +18,7 @@ const Slide = () => {
 				</div>
 			  </div>
 			</div>
-	
 		  </div>
-	
-	
 		</div>
 	  </section>.
 

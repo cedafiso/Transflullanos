@@ -20,7 +20,18 @@
     overflow: hidden;
     margin-bottom: 50px;
 }
-
+.content-about{
+  margin-left: 40px;
+}
+.content-nosotros{
+  position: relative;
+}
+.content-about-all{
+  position: absolute;
+  top: 70px;
+  left: 25%;
+  color: white;
+}
 .content-all-registrer {
     width: 100%;
     max-width: 1000px;
@@ -186,7 +197,26 @@ input[type="submit"]:hover {
 a:hover {
     text-decoration: underline;
   }
-  
+.background-about{
+  background-color: #000826;
+  width: 100vw;
+  height: 630px;
+  opacity: 0.6;
+  left: 0;
+}
+  /* Hero About us */
+  #hero-about{
+      width: 100%;
+      height: 100vh;
+      background-image: url("https://logisber.com/contenido/subidas/2019/07/empresa-de-transporte-maritimo-internacional-1920x1080.jpg");
+      height: 700px;
+      opacity: 1;
+      /* You must set a specified height */
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+      background-size: cover;
+      /* Resize the background image to cover the entire container */
+  }
   /* Hero Unit ----------------------*/
   .hero-unit {
     height: 640px;
