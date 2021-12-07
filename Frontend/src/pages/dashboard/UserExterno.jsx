@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 
-const UserInterno = () => {
+const UserExterno = () => {
   return (
     <React.Fragment>
       <div id="wrapper">
@@ -27,33 +27,27 @@ const UserInterno = () => {
              
 
              <div className= "UserTitle">
-             <h2 >Usuario interno</h2>
-               <h4 >Añadir rutas</h4>
+             <h2 >Usuario Externo</h2>
+               <h4 >Escoja qué ruta va a utilizar</h4>
              </div>
              
              <div className="contentUser">
-               <div className= "ContenedorInterno">
-               <label htmlFor="">Puerto de origen</label>
-                <input type="text" placeholder= "Nombre del puerto - País o Ciudad" maxLength= "40"/> <br />
-                
-                <span className="Number2"><label htmlFor="">Distancia en millas</label></span>
-                <span className="Number" ><input className="Number" type="number" name="Millas náuticas" id="" /> 
-                <button type="submit">Guardar</button>
-                </span>
-                
+               <div className= "ContenedorExterno"> 
+               <label htmlFor="">Puerto de entrada</label>
+             <select name="" id="">
+                   <option value="Puerto A - Barranquilla">Puerto A - Barranquilla</option>
+                   <option value="Puerto B- Mar de Plata">Puerto B - Mar de Plata</option>
+                   <option value="Puerto C - Chocó">Puerto C - Chocó</option>
+                 </select>
              </div>
 
-             <div className= "ContenedorDestino">
-             <label htmlFor="">Puerto de destino</label>
-                <input type="text" placeholder= "Nombre del puerto - País o Ciudad" maxLength= "40"/> <br />
-                
-                <span className="Number2"><label htmlFor="">Costo x milla náutica</label></span>
-                <span className="Number2" ><input type="number" name="Millas pagar" placeholder="Precio en dólares" /> <button type="submit">Cancelar</button>
-                </span>
-                
-                
-               
-                
+             <div className= "ContenedorDestinoEx">
+             <label htmlFor="">Puerto de salida</label>
+             <select name="" id="">
+                   <option value="Puerto D - El Concord">Puerto D - El Concord</option>
+                   <option value="Puerto E- Malambo">Puerto E- Malambo</option>
+                   <option value="Puerto F - Montevideo">Puerto F - Montevideo</option>
+                 </select>
              </div>
 
              </div>
@@ -77,4 +71,4 @@ const UserInterno = () => {
   );
 };
 
-export default UserInterno;
+export default UserExterno;

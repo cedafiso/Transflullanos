@@ -503,3 +503,138 @@ a:hover {
           font-size: 1.35rem;
       }
   }
+  
+
+  .UserTitle{
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: bold;
+    color: #003180;
+    
+  }
+  .contentUser{
+    column-count: 2;
+  }
+
+  .ContenedorInterno{
+    text-align: left;
+  }
+
+  .ContenedorDestino{
+    text-align: right;
+  }
+
+  .ContenedorInterno input{
+    max-width: 330px;
+    margin-left: 30%;
+    background-color: rgb(164, 165, 238);
+    border: 3px solid rgb(38, 49, 199);
+    border-radius: 5px;
+    text-align: center;
+  }
+  .ContenedorDestino input{
+    max-width: 330px;
+    margin-right: 30%;
+    background-color: rgb(164, 165, 238);
+    border: 3px solid rgb(38, 49, 199);
+    border-radius: 5px;
+    text-align: center;
+  }
+  .ContenedorInterno label{
+    text-align: center;
+        margin-top: 0%;
+        margin-left: 20%;
+        color: black;
+        font-size: large;
+        font-weight: bolder;
+  }
+
+  .ContenedorDestino label{
+    text-align: center;
+        margin-top: 0%;
+        margin-right: 25%;
+        color: black;
+        font-size: large;
+        font-weight: bolder;
+  }
+  .ContenedorInterno button{
+    border-radius: 10%;
+    border: 2px solid rgb(52, 143, 196);
+    background-color: #6f8b9c;
+    margin-left: 75%;
+    margin-top: 5%;
+  }
+
+  .ContenedorDestino button{
+    border-radius: 10%;
+    border: 2px solid rgb(52, 143, 196);
+    background-color: #6f8b9c;
+    margin-right: 75%;
+    margin-top: 5%;
+  }
+
+  .Number input{
+    max-width: 200px;
+    margin-left: 42.5%;
+
+  }
+
+  .Number2 input{
+    max-width: 200px;
+    margin-right: 44%;
+  }
+  .Number2 label{
+    margin-top: 1%;
+  }
+  .Number label{
+    margin-top: 1%;
+  }
+
+  .ContenedorExterno select{
+    max-width: 80%;
+    background-color: #a2d1ec;
+    border: 2px solid black;
+  }
+
+  .ContenedorDestinoEx select{
+    max-width: 80%;
+    margin-top: 0%;
+    background-color: #a2d1ec;
+    border: 2px solid black;
+  }
+  
+  .ContenedorExterno label{
+    margin-top: 0%;
+  }
+
+  .ContenedorDestinoEx label{
+    margin-top: 40%;
+  }
+  
+  
+  .ContenedorDestinoEx{
+    margin-right: 44%;
+    
+  }
+  .ContenedorExterno{
+    margin-left: 44%;
+    
+    
+  }
+  .ContenedorExterno option{
+    background-color: #006caf;
+  }
+
+  .ContenedorDestinoEx option{
+    background-color: #006caf;
+  }
+
+  
+  
+  
+    
+    
+  
+  
+  
+  

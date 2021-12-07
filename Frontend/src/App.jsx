@@ -7,6 +7,7 @@ import Login from "./pages/auth/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Register from "./pages/auth/Register";
 import UserInterno from "./pages/dashboard/UserInterno";
+import UserExterno from "./pages/dashboard/UserExterno";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/userinterno" element={<UserInterno />} />
+          <Route exact path="/userexterno" element={<UserExterno />} />
         </Routes>
       </div>
     </BrowserRouter>
