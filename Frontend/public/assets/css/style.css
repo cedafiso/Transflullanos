@@ -557,6 +557,7 @@ section {
   text-transform: uppercase;
   color: #aaaaaa;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
 .section-title h2::after {
@@ -1327,7 +1328,6 @@ section {
   width: 100%;
   background: #fff;
 }
-
 .contact .info i {
   font-size: 20px;
   color: #556270;
@@ -1340,6 +1340,7 @@ section {
   align-items: center;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .contact .info h4 {
@@ -2137,4 +2138,37 @@ section {
 
 #footer .credits a:hover {
   color: white;
+}
+#card{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+.card_content{
+    width: 310px;
+    padding: 20px;
+    box-shadow: 1px 1px 5px rgb(201, 201, 201);
+    border: solid rgba(3, 133, 255, 0) 2px;
+    border-radius: 10px;
+}
+.card__perfil:hover{
+    border: solid rgb(3, 133, 255) 2px;
+    border-radius: 10px;
+}
+.card__nombre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card__button{
+    text-align: center;
+}
+.card__button a{
+    background: rgb(0, 110, 255);
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none;
 }
