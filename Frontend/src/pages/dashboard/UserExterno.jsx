@@ -38,7 +38,11 @@ const UserExterno = () => {
                    <option value="Puerto A - Barranquilla">Puerto A - Barranquilla</option>
                    <option value="Puerto B- Mar de Plata">Puerto B - Mar de Plata</option>
                    <option value="Puerto C - Chocó">Puerto C - Chocó</option>
-                 </select>
+                   </select>
+                   
+                   <div className="OrdenesEx2">
+                    <button type="submit">Guardar</button>
+                  </div>
              </div>
 
              <div className= "ContenedorDestinoEx">
@@ -48,11 +52,16 @@ const UserExterno = () => {
                    <option value="Puerto E- Malambo">Puerto E- Malambo</option>
                    <option value="Puerto F - Montevideo">Puerto F - Montevideo</option>
                  </select>
+                 <div className="OrdenesEx">
+              <button type="submit">Cancelar</button>
+            </div>
              </div>
 
+            
+         
              </div>
-
-              
+            
+          
 
               
 
