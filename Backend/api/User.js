@@ -95,7 +95,51 @@ router.post('/signup', (req, res) => {
 })
 //Signin
 router.post('/signin', (req, res) => {
-
+    let {email, password} =req.body;
+    email = email.trim();
+    password = password.trim();
+    if(email == "" || password == ""){
+        res.json({
+            status: "FALLO",
+            message: "Credecenciales de ingreso vacio"
+        });
+    } else{
+        User.find({email})
+        .then(data => {
+            if(data.length){
+                //User Exist
+                const hashedPassword = data[0].password;
+                bcrypt.compare(password, hashedPassword).then(result => {
+                    if(result){
+                        res.json({
+                            status: 'EXITOSO',
+                            message: "Ingreso exitoso"
+                        })
+                    }else{
+                        res.json({
+                            status: 'FALLO',
+                            message: "Contraseña incorrecta"
+                        })
+                    }
+                }).catch(err => {
+                    res.json({
+                        status: 'FALLO',
+                        message: "Error al verificar contraseña"
+                    })
+                })
+            }else{
+                res.json({
+                    status: 'FALLO',
+                    message: "Credenciales no validas"
+                })
+            }
+        }).catch(err =>{
+            res.json({
+                status: 'FALLO',
+                message: "Error al verificar el usuario"
+            })
+        })
+    }
 })
 
 module.exports = router;
