@@ -8,6 +8,6 @@ const OrdenDeServicioSchema = new Schema({
     createDate: Date,
 });
 
-const User = mongoose.model('User', UserSchema);
+const Orden = mongoose.model('Orden', OrdenDeServicioSchema);
 
-module.exports = User;
+module.exports = Orden;
