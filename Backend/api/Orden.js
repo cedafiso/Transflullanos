@@ -49,21 +49,27 @@ router.post('/create', verify,  (req, res) => {
 
 //Search Order
 router.post('/search', verify, (req, res) => {
-    let{cliente, origen, destino} = req.body;
+    let{cliente = "", origen = "", destino = ""} = req.body;
     cliente = cliente.trim();
     origen = origen.trim();
     destino = destino.trim();
+    let value = {cliente, origen, destino};
+    Object.keys(value).forEach((k) => obj[k] == null && delete obj[k]);
 
-    if(cliente == "" || origen == "" || destino == ""){
+    if(cliente == "" && origen == "" && destino == ""){
         res.json({
             status: "FALLO",
-            message: "Campo vacio"
+            message: "Campos vacios"
         });
     }else{
-        Orden.find({cliente, origen, destino})
+        // if(cliente == "" && origen == ""){
+        //     value = {destino};
+        // }else if(cliente == "" && destino == ""){
+        //     value = {origen};
+        // }
+        Orden.find(value)
         .then(data =>{
             if(data.length){
-                console.log(data[0].cliente);
                 res.json({
                     status: 'EXITOSO',
                     message: "Se encontro la orden",
@@ -84,6 +90,11 @@ router.post('/search', verify, (req, res) => {
         })
     }
 })
+
+// router.post('/update', verify, (req, res) => {
+//     let {} = req.body;
+
+// })
 
 
 module.exports = router;
