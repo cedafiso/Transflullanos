@@ -1,12 +1,12 @@
 import NavBar from "../../components/NavBar";
+import ContactForm from "../../components/FormContactos";
 
 const Contactos = () => {
 	return ( 
 		<div>
-		<NavBar/>
-			<h1>HOLII DE CONTACTOS</h1>
+			<NavBar />
+			<ContactForm />
 		</div>
 	 );
 }
- 
-export default Contactos;
+export default Contactos; 

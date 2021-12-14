@@ -1,6 +1,5 @@
-
 #accordionSidebar {
-    background-image: linear-gradient(to right top, #000826, #010b2d, #000e35, #00103c, #001143, #001249, #00134f, #011355, #01155c, #011763, #01186b, #021a72);
+    background-image: linear-gradient(to right top, #03045E, #011167, #001d70, #002778, #003180, #003a88, #00438f, #004c96, #00579f, #0062a7, #006caf, #0077b6);
 }
 
 #error404 {
@@ -21,7 +20,18 @@
     overflow: hidden;
     margin-bottom: 50px;
 }
-
+.content-about{
+  margin-left: 40px;
+}
+.content-nosotros{
+  position: relative;
+}
+.content-about-all{
+  position: absolute;
+  top: 70px;
+  left: 25%;
+  color: white;
+}
 .content-all-registrer {
     width: 100%;
     max-width: 1000px;
@@ -54,6 +64,10 @@
     font-size: 27px;
 }
 
+#titulo_register {
+    color: #0077B6;
+}
+
 p {
     text-align: left;
     margin-top: 9px;
@@ -76,7 +90,7 @@ select {
     border: 0px;
     outline: 0px;
     border-bottom: 1px solid rgba(1, 17, 76);
-    color: #021A72;
+    color: #03045E;
     font-size: 17.5px;
 }
 
@@ -95,7 +109,7 @@ input[type="number"] {
     border: 0px;
     outline: 0px;
     border-bottom: 1px solid rgb(1, 17, 76);
-    color: #021A72;
+    color: #03045E;
     font-size: 17.5px;
 }
 
@@ -105,7 +119,7 @@ input[type="submit"] {
     margin-top: 30px;
     color: white;
     border: 0px;
-    background: linear-gradient(268.44deg, #000826 -3.37%, #021A72 100%);
+    background: linear-gradient(268.44deg, #03045E -3.37%, #023E8A 100%);
     box-shadow: 0px 10px 20px rgba(66, 129, 15, 0.2);
     border-radius: 5px;
     font-weight: 300;
@@ -114,7 +128,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background: linear-gradient(268.44deg, #021A72 -3.37%, #000826 100%);
+    background: linear-gradient(268.44deg, #023E8A -3.37%, #03045E 100%);
 }
 
 .text-footer {
@@ -126,14 +140,16 @@ input[type="submit"]:hover {
 }
 
 .text-footer a {
-    color: #021A72;
+    color: #03045E;
     font-weight: 500;
 }
 
 /* LADO DERECHO*/
+
+
 .ctn-image {
     width: 80%;
-    background: linear-gradient(180deg, #021A72 0%, #01114C 100%, #000826 100%);
+    background: linear-gradient(180deg, #03045E 0%, #023e8a 100%, #000826 100%);
     /*   border-radius: 0 10px 10px 0; */
     position: relative;
 }
@@ -173,3 +189,467 @@ input[type="submit"]:hover {
     color: #0077B6
 }
 
+
+/* Servicios*/
+
+
+/* plan*/
+a:hover {
+    text-decoration: underline;
+  }
+.background-about{
+  background-color: #000826;
+  width: 100vw;
+  height: 630px;
+  opacity: 0.6;
+  left: 0;
+}
+  /* Hero About us */
+  #hero-about{
+      width: 100%;
+      height: 100vh;
+      background-image: url("https://logisber.com/contenido/subidas/2019/07/empresa-de-transporte-maritimo-internacional-1920x1080.jpg");
+      height: 700px;
+      opacity: 1;
+      /* You must set a specified height */
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+      background-size: cover;
+      /* Resize the background image to cover the entire container */
+  }
+  /* Hero Unit ----------------------*/
+  .hero-unit {
+    height: 640px;
+    background: url(https://images.pexels.com/photos/906982/pexels-photo-906982.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  .hero-unit h1,
+  .hero-unit h2,
+  .hero-unit h3,
+  .hero-unit h4,
+  .hero-unit h5,
+  .hero-unit h6 {
+    margin-top: -0.5rem;
+    margin-bottom: 0;
+    color: white;
+  }
+  .hero-unit h1 {
+    font-weight: bold;
+  }
+  .hero-unit hgroup {
+    margin: 3rem 0;
+  }
+  .hero-unit .card-icon { /* front of card */
+    display: block;
+    margin: 0.5rem auto 0;
+    font-size: 2rem;
+    color: white;
+  }
+  .hero-unit .clients {
+    margin: 2rem auto;
+  }
+  .hero-unit .clients a {
+    color: white;
+  }
+  .clients .fa-stack-2x {
+    color: gray;
+  }
+  .clients:hover .fa-stack-2x {
+    color: #333333;
+  }
+  
+  /* Card design - front */
+  .button.large {
+    margin: 0;
+    padding: 3.25rem;
+  }
+  .button.large a {
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 100;
+    margin-top: 2rem;
+  }
+  
+  /* Card design - back */
+  .panel i {
+    font-size: 2rem;
+    display: block;
+    float: left;
+    width: 20%;
+    opacity: 0.5;
+  }
+  .panel a, 
+  .panel p, 
+  .panel small {
+    width: 80%;
+    float: right;
+  }
+  .panel a {
+    margin-bottom: 0.5rem;
+  }
+  .panel a:hover {
+    text-decoration: underline;
+  }
+  .panel small {
+    margin-top: -0.5rem;
+    font-style: italic;
+  }
+  
+  /* Buttons Card Flipper 
+   * Source: https://cssdeck.com/labs/rxcleo5w
+   */
+  .flip-cards {
+    float: left;
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+  }
+  
+  .flip-cards li {
+    float: left;
+    width: 33.3%;
+    height: 180px;
+    position: relative;
+    padding: 0;
+  }
+  
+  .flip-cards li:hover {
+    cursor: pointer;
+  }
+  
+  .flip-cards li:hover .card-front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transform: perspective(1000) rotateY(180deg);
+    -moz-transform: perspective(1000) rotateY(180deg);
+    -ms-transform: perspective(1000) rotateY(180deg);
+    -o-transform: perspective(1000) rotateY(180deg);
+    transform: perspective(1000) rotateY(180deg);
+  }
+  
+  .flip-cards li:hover .card-back {
+    z-index: 950;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform: perspective(1000) rotateY(0deg);
+    -moz-transform: perspective(1000) rotateY(0deg);
+    -ms-transform: perspective(1000) rotateY(0deg);
+    -o-transform: perspective(1000) rotateY(0deg);
+    transform: perspective(1000) rotateY(0deg);
+  }
+  
+  .flip-cards .card-front,
+  .flip-cards .card-back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    -o-transition: -o-transform 0.6s;
+    transition: transform 0.6s;
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .flip-cards .card-front {
+    -webkit-transform: perspective(1000) rotateY(0);
+    -moz-transform: perspective(1000) rotateY(0);
+    -ms-transform: perspective(1000) rotateY(0);
+    -o-transform: perspective(1000) rotateY(0);
+    transform: perspective(1000) rotateY(0);
+    z-index: 900;
+  }
+  
+  .flip-cards .card-back {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    z-index: 800;
+  }
+  
+  /* Button Card Colors */
+  .flip-cards .panel {
+    border: none;
+  }
+  
+  .flip-cards .panel i,
+  .flip-cards .panel p,
+  .flip-cards .panel a,
+  .flip-cards .panel small {
+    color: white;
+  }
+  
+  /* First button color */
+  .flip-cards li:first-child > .button {
+    background-color: rgba(40, 57, 77, 0.8);
+  }
+  .flip-cards li:first-child > .panel {
+    background-color: rgba(40, 57, 77, 1);
+  }
+  
+  /* Second button color */
+  .flip-cards li:nth-child(2) > .button {
+    background-color: rgba(109, 193, 202, 0.8);
+  }
+  .flip-cards li:nth-child(2) > .panel {
+    background-color: rgba(109, 193, 202, 1);
+  }
+  
+  /* Third button color */
+  .flip-cards li:nth-child(3) > .button {
+    background-color: rgba(211, 81, 45, 0.8);
+  }
+  .flip-cards li:nth-child(3) > .panel {
+    background-color: rgba(211, 81, 45, 1);
+  }
+  
+  /* Fourth button color */
+  .flip-cards li:nth-child(4) > .button {
+    background-color: rgba(235, 167, 36, 0.8);
+  }
+  .flip-cards li:nth-child(4) > .panel {
+    background-color: rgba(235, 167, 36, 1);
+  }
+  
+  /* Fifth button color */
+  .flip-cards li:nth-child(5) > .button {
+    background-color: rgba(75, 135, 150, 0.8);
+  }
+  .flip-cards li:nth-child(5) > .panel {
+    background-color: rgba(75, 135, 150, 1);
+  }
+  
+  /* Sixth (last) button color */
+  .flip-cards li:last-child > .button {
+    background-color: rgba(100, 66, 87, 0.8);
+  }
+  .flip-cards li:last-child > .panel {
+    background-color: rgba(100, 66, 87, 1);
+    color: white;
+  }
+  
+  /*
+   * RESPONSIVENESS -------------------------------------------------
+   */
+  @media only screen and ( max-width: 40em ) {
+      .hero-unit {
+          height: 800px;
+      }
+      .flip-cards li {
+          width: 50%;
+          /*height: 160px;*/
+      }
+  }
+  @media only screen and ( max-width: 30em ) {
+      .hero-unit h1 {
+          font-size: 1.75rem;
+      }
+      .hero-unit h3 {
+          font-size: 1.125rem;
+      }
+  }
+  @media only screen and ( max-width: 25em ) {
+      .hero-unit {
+          height: 920px;
+      }
+      .hero-unit hgroup {
+          margin: 2rem 0;
+      }
+      .hero-unit h1 {
+          font-size: 1.35rem;
+          padding-bottom: 0.25rem;
+      }
+      .hero-unit h3 {
+          font-size: 0.85rem;
+      }
+      .hero-unit .card-icon {
+          font-size: 1.35rem;
+      }
+      .hero-unit .card-back .card-icon {
+          font-size: 2rem;
+          margin: 0;
+          padding: 5px 0 20px 5px;
+      }
+      .flip-cards li {
+          width: 100%;
+          font-size: 1.35rem;
+          height: 120px;
+      }
+      .flip-cards .panel p {
+          display: none;	
+      }
+      .flip-cards .panel small {
+          margin: 0;
+      }
+      .button.large {
+          padding: 2rem;
+      }
+      .button.large a {
+          font-size: 1.35rem;
+      }
+  }
+  
+
+  .UserTitle{
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: bold;
+    color: #003180;
+    
+  }
+  .contentUser{
+    column-count: 2;
+  }
+
+  .ContenedorInterno{
+    text-align: left;
+  }
+
+  .ContenedorDestino{
+    text-align: right;
+  }
+
+  .ContenedorInterno input{
+    max-width: 330px;
+    margin-left: 30%;
+    background-color: rgb(164, 165, 238);
+    border: 3px solid rgb(38, 49, 199);
+    border-radius: 5px;
+    text-align: center;
+  }
+  .ContenedorDestino input{
+    max-width: 330px;
+    margin-right: 30%;
+    background-color: rgb(164, 165, 238);
+    border: 3px solid rgb(38, 49, 199);
+    border-radius: 5px;
+    text-align: center;
+  }
+  .ContenedorInterno label{
+    text-align: center;
+        margin-top: 0%;
+        margin-left: 20%;
+        color: black;
+        font-size: large;
+        font-weight: bolder;
+  }
+
+  .ContenedorDestino label{
+    text-align: center;
+        margin-top: 0%;
+        margin-right: 25%;
+        color: black;
+        font-size: large;
+        font-weight: bolder;
+  }
+  .ContenedorInterno button{
+    border-radius: 10%;
+    border: 2px solid rgb(52, 143, 196);
+    background-color: #6f8b9c;
+    margin-left: 75%;
+    margin-top: 5%;
+  }
+
+  .ContenedorDestino button{
+    border-radius: 10%;
+    border: 2px solid rgb(52, 143, 196);
+    background-color: #6f8b9c;
+    margin-right: 75%;
+    margin-top: 5%;
+  }
+
+  .Number input{
+    max-width: 200px;
+    margin-left: 42.5%;
+
+  }
+
+  .Number2 input{
+    max-width: 200px;
+    margin-right: 44%;
+  }
+  .Number2 label{
+    margin-top: 1%;
+  }
+  .Number label{
+    margin-top: 1%;
+  }
+
+  .ContenedorExterno select{
+    max-width: 80%;
+    background-color: #a2d1ec;
+    border: 2px solid black;
+  }
+
+  .ContenedorDestinoEx select{
+    max-width: 80%;
+    margin-top: 0%;
+    background-color: #a2d1ec;
+    border: 2px solid black;
+  }
+  
+  .ContenedorExterno label{
+    margin-top: 0%;
+  }
+
+  .ContenedorDestinoEx label{
+    margin-top: 40%;
+  }
+  
+  
+  .ContenedorDestinoEx{
+    margin-right: 44%;
+    
+  }
+  .ContenedorExterno{
+    margin-left: 44%;
+    
+    
+  }
+  .ContenedorExterno option{
+    background-color: #006caf;
+  }
+
+  .ContenedorDestinoEx option{
+    background-color: #006caf;
+  }
+
+  .OrdenesEx button{
+    margin-top: 5%;
+    margin-right:100%;
+    background-color: #86b4e2;
+    border-radius: 10%;
+    border: 3px solid #010a1a;
+  }
+  .OrdenesEx2 button{
+    margin-left: 60%;
+    margin-top: 5%;
+    background-color: #86b4e2;
+    border-radius: 10%;
+    border: 3px solid #010a1a;
+  }
+
+  
+  
+  
+    
+    
+  
+  
+  
+  
