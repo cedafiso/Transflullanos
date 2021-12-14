@@ -1,5 +1,7 @@
+require('dotenv').config()
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 //mongodb user model
 
@@ -111,9 +113,11 @@ router.post('/signin', (req, res) => {
                 const hashedPassword = data[0].password;
                 bcrypt.compare(password, hashedPassword).then(result => {
                     if(result){
+                        const token = jwt.sign({_id: data[0]._id}, process.env.ACCESS_TOKEN_SECRET);
+                        res.header('auth-token', token);
                         res.json({
                             status: 'EXITOSO',
-                            message: "Ingreso exitoso"
+                            message: "Ingreso exitoso",
                         })
                     }else{
                         res.json({
@@ -124,7 +128,8 @@ router.post('/signin', (req, res) => {
                 }).catch(err => {
                     res.json({
                         status: 'FALLO',
-                        message: "Error al verificar contraseña"
+                        message: "Error al verificar contraseña",
+                        err
                     })
                 })
             }else{
@@ -136,7 +141,7 @@ router.post('/signin', (req, res) => {
         }).catch(err =>{
             res.json({
                 status: 'FALLO',
-                message: "Error al verificar el usuario"
+                message: "Error al verificar el usuario",
             })
         })
     }

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const verify = require('./VerifyToken')
 
 //mongodb orden model
 
@@ -7,7 +8,7 @@ const Orden = require('../models/Orden');
 
 
 //Create order
-router.post('/create', (req, res) => {
+router.post('/create', verify,  (req, res) => {
     let { cliente, origen, destino, createDate } = req.body;
     cliente = cliente.trim();
     origen = origen.trim();
@@ -47,7 +48,7 @@ router.post('/create', (req, res) => {
 });
 
 //Search Order
-router.post('/search', (req, res) => {
+router.post('/search', verify, (req, res) => {
     let{cliente, origen, destino} = req.body;
     cliente = cliente.trim();
     origen = origen.trim();
