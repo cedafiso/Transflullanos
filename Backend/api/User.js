@@ -196,4 +196,22 @@ router.post('/edit', verify, (req, res) => {
     }
 })
 
+
+//Delete one user
+router.post('/delete', verify, (req, res) => {
+    let{ idNumber } = req.body;
+    idNumber = idNumber.trim();
+
+    User.deleteOne({idNumber}).then(result =>{
+        res.json({
+            status : "EXITOSA",
+            message: "Se ha eliminado el usuario con exito"
+        })
+    }).catch(err => {
+        res.json({
+            status: "FALLO",
+            message: "Error al intentar eliminar usuario"
+        })
+    })
+})
 module.exports = router;

@@ -62,11 +62,6 @@ router.post('/search', verify, (req, res) => {
             message: "Campos vacios"
         });
     }else{
-        // if(cliente == "" && origen == ""){
-        //     value = {destino};
-        // }else if(cliente == "" && destino == ""){
-        //     value = {origen};
-        // }
         Orden.find(value)
         .then(data =>{
             if(data.length){
