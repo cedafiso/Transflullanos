@@ -13,18 +13,21 @@ const bcrypt = require('bcrypt');
 
 //Signup
 router.post('/signup', (req, res) => {
-    let {name, email, password, dateOfBirth} = req.body;
-    name = name.trim();
+    let {idNumber, firstName, lastName, cellphone, email, rol, password} = req.body;
+    idNumber = idNumber.trim();
+    firstName = firstName.trim();
+    lastName = lastName.trim();
+    cellphone = cellphone.trim();
     email = email.trim();
+    rol = rol.trim();
     password = password.trim();
-    dateOfBirth = dateOfBirth.trim();
 
-    if(name == "" || email == "" || password == "" || dateOfBirth == ""){
+    if(idNumber == "" || firstName == "" || lastName == "" || cellphone == "" || rol == "" || email == "" || password == "" ){
         res.json({
             status: "FALLO",
             message: "Campo vacio"
         });
-    }else if(!/^[a-zA-Z ]*$/.test(name)){
+    }else if(!/^[a-zA-Z ]*$/.test(firstName)){
         res.json({
             status: "FALLO",
             message: "Nombre no valido",
@@ -33,11 +36,6 @@ router.post('/signup', (req, res) => {
         res.json({
             status: "FALLO",
             message: "Email no valido",
-        })
-    }else if (!new Date(dateOfBirth).getTime()) {
-        res.json({
-            status: "FALLO",
-            message: "Fecha de nacimiento no valida"
         })
     }else if(password.length < 8){
         res.json({
@@ -60,7 +58,7 @@ router.post('/signup', (req, res) => {
                 const saltRounds = 10;
                 bcrypt.hash(password, saltRounds).then(hashedPassword =>{
                     const newUser = new User({
-                        name,
+                        name: firstName,
                         email,
                         password: hashedPassword,
                         dateOfBirth
@@ -146,5 +144,8 @@ router.post('/signin', (req, res) => {
         })
     }
 })
+
+
+//Modify user
 
 module.exports = router;
