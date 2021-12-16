@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const verify = require('./VerifyToken')
 
 //mongodb user model
 
@@ -13,7 +14,7 @@ const bcrypt = require('bcrypt');
 
 //Signup
 router.post('/signup', (req, res) => {
-    let {idNumber, firstName, lastName, cellphone, email, rol, password} = req.body;
+    let { idNumber, firstName, lastName, cellphone, email, rol, password } = req.body;
     idNumber = idNumber.trim();
     firstName = firstName.trim();
     lastName = lastName.trim();
@@ -22,46 +23,49 @@ router.post('/signup', (req, res) => {
     rol = rol.trim();
     password = password.trim();
 
-    if(idNumber == "" || firstName == "" || lastName == "" || cellphone == "" || rol == "" || email == "" || password == "" ){
+    if (idNumber == "" || firstName == "" || lastName == "" || cellphone == "" || rol == "" || email == "" || password == "") {
         res.json({
             status: "FALLO",
             message: "Campo vacio"
         });
-    }else if(!/^[a-zA-Z ]*$/.test(firstName)){
+    } else if (!/^[a-zA-Z ]*$/.test(firstName)) {
         res.json({
             status: "FALLO",
             message: "Nombre no valido",
         })
-    }else if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)){
+    } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
         res.json({
             status: "FALLO",
             message: "Email no valido",
         })
-    }else if(password.length < 8){
+    } else if (password.length < 8) {
         res.json({
             status: "FALLO",
             message: "Contraseña no valida"
         })
-    }else{
+    } else {
         //Checking if user already exists
-        User.find({email}).then(result => {
-            if(result.length){
+        User.find({ email }).then(result => {
+            if (result.length) {
                 //It already exist
                 res.json({
                     status: "FALLO",
                     message: "Ya existe un usuario con ese email"
                 })
-            }else{
+            } else {
                 //Try creater new user
 
                 //password handling
                 const saltRounds = 10;
-                bcrypt.hash(password, saltRounds).then(hashedPassword =>{
+                bcrypt.hash(password, saltRounds).then(hashedPassword => {
                     const newUser = new User({
-                        name: firstName,
+                        idNumber,
+                        firstName,
+                        lastName,
+                        cellphone,
                         email,
-                        password: hashedPassword,
-                        dateOfBirth
+                        rol,
+                        password: hashedPassword
                     });
 
                     newUser.save().then(result => {
@@ -95,57 +99,101 @@ router.post('/signup', (req, res) => {
 })
 //Signin
 router.post('/signin', (req, res) => {
-    let {email, password} =req.body;
+    let { email, password } = req.body;
     email = email.trim();
     password = password.trim();
-    if(email == "" || password == ""){
+    if (email == "" || password == "") {
         res.json({
             status: "FALLO",
             message: "Credecenciales de ingreso vacio"
         });
-    } else{
-        User.find({email})
-        .then(data => {
-            if(data.length){
-                //User Exist
-                const hashedPassword = data[0].password;
-                bcrypt.compare(password, hashedPassword).then(result => {
-                    if(result){
-                        const token = jwt.sign({_id: data[0]._id}, process.env.ACCESS_TOKEN_SECRET);
-                        res.header('auth-token', token);
-                        res.json({
-                            status: 'EXITOSO',
-                            message: "Ingreso exitoso",
-                        })
-                    }else{
+    } else {
+        User.find({ email })
+            .then(data => {
+                if (data.length) {
+                    //User Exist
+                    const hashedPassword = data[0].password;
+                    bcrypt.compare(password, hashedPassword).then(result => {
+                        if (result) {
+                            const token = jwt.sign({ _id: data[0]._id }, process.env.ACCESS_TOKEN_SECRET);
+                            res.header('auth-token', token);
+                            res.json({
+                                status: 'EXITOSO',
+                                message: "Ingreso exitoso",
+                            })
+                        } else {
+                            res.json({
+                                status: 'FALLO',
+                                message: "Contraseña incorrecta"
+                            })
+                        }
+                    }).catch(err => {
                         res.json({
                             status: 'FALLO',
-                            message: "Contraseña incorrecta"
+                            message: "Error al verificar contraseña",
+                            err
                         })
-                    }
-                }).catch(err => {
+                    })
+                } else {
                     res.json({
                         status: 'FALLO',
-                        message: "Error al verificar contraseña",
-                        err
+                        message: "Credenciales no validas"
                     })
-                })
-            }else{
+                }
+            }).catch(err => {
                 res.json({
                     status: 'FALLO',
-                    message: "Credenciales no validas"
+                    message: "Error al verificar el usuario",
                 })
-            }
-        }).catch(err =>{
+            })
+    }
+})
+
+//Modify user
+router.post('/edit', verify, (req, res) => {
+    let { idNumber, firstName, lastName, cellphone, email, rol, password} = req.body;
+    idNumber = idNumber.trim();
+    firstName = firstName.trim();
+    lastName = lastName.trim();
+    cellphone = cellphone.trim();
+    email = email.trim();
+    rol = rol.trim();
+    password = password.trim();
+
+    if (idNumber == "" || firstName == "" || lastName == "" || cellphone == "" || rol == "" || email == "" || password == "") {
+        res.json({
+            status: "FALLO",
+            message: "Campo vacio"
+        });
+    } else if (!/^[a-zA-Z ]*$/.test(firstName)) {
+        res.json({
+            status: "FALLO",
+            message: "Nombre no valido",
+        })
+    } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        res.json({
+            status: "FALLO",
+            message: "Email no valido",
+        })
+    } else if (password.length < 8) {
+        res.json({
+            status: "FALLO",
+            message: "Contraseña no valida"
+        })
+    } else {
+        User.updateOne({ idNumber }, { $set: { firstName, lastName, cellphone, email, rol} }).then(result => {
             res.json({
-                status: 'FALLO',
-                message: "Error al verificar el usuario",
+                status: "EXITOSO",
+                message: "Update exitoso",
+                data: result,
+            })
+        }).catch(err => {
+            res.json({
+                status: "FALLO",
+                message: "Error actualizar al nuevo usuario"
             })
         })
     }
 })
-
-
-//Modify user
 
 module.exports = router;
