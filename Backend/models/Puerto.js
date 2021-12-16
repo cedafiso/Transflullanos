@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PuertoRutaSchema = new Schema({
-    origen: String,
-    destino: String,
-    precio: Number
+    puerto1: String,
+    puerto2: String,
+    tarifa: Number
 });
 
-const User = mongoose.model('User', UserSchema);
+const Puerto = mongoose.model('Puerto', PuertoRutaSchema);
 
-module.exports = User;
+module.exports = Puerto;
