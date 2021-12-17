@@ -2,6 +2,15 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+
+  function logout() {
+    localStorage.removeItem("token");
+    // const navigate = useNavigate()
+    // navigate('/');
+    window.location.href = "/";
+}
+
+
   return (
     <React.Fragment>
       <ul
@@ -94,7 +103,7 @@ const Sidebar = () => {
             data-target="#logoutModal"
           >
             <i className="fas fa-sign-out-alt"></i>
-            <span>Cerrar sesión</span>
+            <span type="button" onClick={logout}>Cerrar sesión</span>
           </Link>
         </li>
       </ul>
