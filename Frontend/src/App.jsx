@@ -3,11 +3,13 @@ import Home from "./pages/home/Home";
 import Products from "./pages/products/Products";
 import Nosotros from "./pages/nosotros/Nosotros";
 import Contactos from "./pages/contactos/Contactos";
-import Login from "./pages/auth/Login";
+import {Login} from "./pages/auth/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Register from "./pages/auth/Register";
 import UserInterno from "./pages/dashboard/UserInterno";
 import UserExterno from "./pages/dashboard/UserExterno";
+import Users from "./pages/users/Users";
+import Createuser from "./pages/users/Createuser";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/userinterno" element={<UserInterno />} />
           <Route exact path="/userexterno" element={<UserExterno />} />
+          <Route exact path="/users" element={<Users/>} />
+          <Route exact path="/Createuser" element={<Createuser/>} />
         </Routes>
       </div>
     </BrowserRouter>
