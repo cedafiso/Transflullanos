@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OrdenDeServicioSchema = new Schema({
+    idNumber: Number,
     cliente: String,
     origen: String,
     destino: String,
