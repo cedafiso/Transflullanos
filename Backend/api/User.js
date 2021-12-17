@@ -214,4 +214,35 @@ router.post('/delete', verify, (req, res) => {
         })
     })
 })
+
+
+router.get("/lista", async (req, res) => {
+    try {
+      const user = await User.find();
+      res.json(user);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+
+
+router.post("/consultar", function (req, res) {
+    // Captura el nombre del producto a buscar
+    const { idNumber } = req.body; 
+    // Busca el producto en la BD
+    User.findOne({ idNumber }, function (error, id) {
+        // Si hubo error
+        if (error) {
+            res.send({ estado: "error", msg: "Usuario NO encontrado" })
+            return false;
+        } else {
+            if (idNumber !== null) {
+                res.send({ estado: "ok", msg: "Usuario Encontrado", data: id })
+            } else {
+                res.send({ estado: "error", msg: "Usuario NO encontrado" })
+            }
+        }
+    })
+});
+
 module.exports = router;
