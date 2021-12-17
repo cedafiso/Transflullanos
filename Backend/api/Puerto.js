@@ -77,5 +77,22 @@ router.post('/search', verify, (req, res) => {
     }
 })
 
+router.post('/delete', verify, (req, res) => {
+    let{ puerto1, puerto2 } = req.body;
+    puerto1 = puerto1.trim();
+    puerto2 = puerto2.trim();
+
+    Puerto.deleteOne({puerto1, puerto2}).then(result =>{
+        res.json({
+            status : "EXITOSA",
+            message: "Se ha eliminado la ruta con exito"
+        })
+    }).catch(err => {
+        res.json({
+            status: "FALLO",
+            message: "Error al intentar eliminar la ruta"
+        })
+    })
+})
 
 module.exports = router;
