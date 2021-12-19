@@ -42,39 +42,41 @@ const Sidebar = () => {
         <div className="sidebar-heading">Gestionar Usuarios</div>
 
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
+        {/* <!-- data-toggle="collapse */}
         <li className="nav-item">
           <NavLink
             className="nav-link collapsed"
             to="/users"
-            data-toggle="collapse"
+            
             data-target="#collapseTwo"
             aria-expanded="true"
             aria-controls="collapseTwo"
             activeclassname="text-white"
           >
             <i className="fas fa-users-cog"></i>
-            <span>Usuarios externos</span>
+            <span>Usuarios</span>
           </NavLink>
         </li>
+         
+         {/* <!-- data-toggle="collapse */}
         <li className="nav-item">
           <NavLink
             className="nav-link collapsed"
-            to="/userinterno"
-            data-toggle="collapse"
+            to="/OrderList"
             data-target="#collapseUtilities"
             aria-expanded="true"
             aria-controls="collapseUtilities"
             activeclassname="text-white"
           >
-            <i className="fas fa-users-cog"></i>
-            <span>Usuarios internos</span>
+            <i className="far fa-clipboard"></i>
+            <span>Ordenes</span>
           </NavLink>
           <div
             id="collapseUtilities"
             class="collapse show"
             aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar"
-          >
+          >{/* <!-- Divider --> 
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Opciones</h6>
               <Link class="collapse-item" to="/">
@@ -86,7 +88,41 @@ const Sidebar = () => {
               <Link class="collapse-item" to="/">
                 Cambiar estados
               </Link>
-            </div>
+            </div>*/}
+          </div>
+        </li>
+        {/* <!-- data-toggle="collapse */}
+        <li className="nav-item">
+          <NavLink
+            className="nav-link collapsed"
+            to="/Puertolist"
+            
+            data-target="#collapseUtilities"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+            activeclassname="text-white"
+          >
+            <i className="fa fa-ship"></i>
+            <span>Puertos</span>
+          </NavLink>
+          <div
+            id="collapseUtilities"
+            class="collapse show"
+            aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar"
+          >{/* <!-- Divider --> 
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Opciones</h6>
+              <Link class="collapse-item" to="/">
+                Ingresar puertos
+              </Link>
+              <Link class="collapse-item" to="/">
+                Aceptar ordenes
+              </Link>
+              <Link class="collapse-item" to="/">
+                Cambiar estados
+              </Link>
+            </div>*/}
           </div>
         </li>
 

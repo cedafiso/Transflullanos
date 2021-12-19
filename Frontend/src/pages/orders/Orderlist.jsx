@@ -1,16 +1,15 @@
-
 import Sidebar from "../dashboard/components/Sidebar";
 import Topbar from "../dashboard/components/Topbar";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import './Users.css';
+import './Order.css';
 
-const Users = () => {
+const Orders = () => {
 
   const [listado, setListado] = useState([]);
   useEffect(() => {
-      fetch("http://localhost:3031/user/lista", {
+      fetch("http://localhost:3031/order/lista", {
           method: "GET"
       }).then(res => res.json())
           .then(res => {
@@ -22,7 +21,7 @@ const Users = () => {
   const Borrar = async (endpoint,data) =>{
   
     try {
-      const response = await fetch(`http://localhost:3031/user/borrar/${endpoint}`,{
+      const response = await fetch(`http://localhost:3031/order/borrar/${endpoint}`,{
         headers: {
           "content-Type": "application/json",
         },
@@ -37,12 +36,13 @@ const Users = () => {
   }
  
   const handleBorrar =(id)=>{
-    if (window.confirm("esta seguro que desea eliminar este Usuario?")){
+    if (window.confirm("esta seguro que desea eliminar esta Orden?")){
       console.log("Delete Id:", id)
        Borrar(`${id}`);
+       
     }
   }
-  
+
   return (
     <React.Fragment>
       <div id="wrapper">
@@ -62,10 +62,10 @@ const Users = () => {
             <div className="container-fluid">
             <div>
               <br/>
-            <h1  className="text-nowrap-width: 8rem;">Usuarios</h1>
+            <h1  className="text-nowrap-width: 8rem;">Ordenes</h1>
             
             <br/>
-              <Link className="btn btn-primary" to="/Createuser">Añadir usuario</Link>
+              <Link className="btn btn-primary" to="/Createorden">Añadir Orden</Link>
             </div>
               {/* <!-- Page Heading --> */}
               
@@ -78,26 +78,24 @@ const Users = () => {
                             
                             
                                 <tr>
-                                    <th scope="col">Identificacion</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Correo Electronico</th>
-                                    <th scope="col">Rol</th>
+                                    <th scope="col">Numero de orden</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Origen</th>
+                                    <th scope="col">Destino</th>
                                     <th scope="col">Controles</th>
                                 </tr>
                             
                             </thead>
                             <tbody>
-                            {listado.map(users => 
+                            {listado.map(order => 
                                   <tr>
-                                  <td>{users.idNumber}</td>
-                                  <td>{users.firstName}</td>
-                                  <td>{users.lastName}</td>
-                                  <td>{users.cellphone}</td>
-                                  <td>{users.email}</td>
-                                  <td>{users.rol}</td>
-                                  <td><svg type="button" onClick={() =>handleBorrar(users._id)} xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                  <td>{order.idNumber}</td>
+                                  <td>{order.cliente}</td>
+                                  <td>{order.createDate}</td>
+                                  <td>{order.origen}</td>
+                                  <td>{order.destino}</td>
+                                  <td><svg type="button" onClick={() =>handleBorrar(order._id)}  xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                                       <rect x="0.559937" y="0.75" width="34.5" height="34.5" rx="3.5" fill="#F2F1F6" stroke="#2D3AB9"/>
                                       <path d="M11.8099 25C11.8099 26.1 12.7099 27 13.8099 27H21.8099C22.9099 27 23.8099 26.1 23.8099 25V13H11.8099V25ZM24.8099 10H21.3099L20.3099 9H15.3099L14.3099 10H10.8099V12H24.8099V10Z" fill="#4D4D4D" />
                                   </svg>
@@ -127,4 +125,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Orders;

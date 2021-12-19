@@ -10,6 +10,11 @@ import UserInterno from "./pages/dashboard/UserInterno";
 import UserExterno from "./pages/dashboard/UserExterno";
 import Users from "./pages/users/Users";
 import Createuser from "./pages/users/Createuser";
+import Orderlist from "./pages/orders/Orderlist";
+import Createorden from "./pages/orders/Createorden";
+import Puertolist from "./pages/puertos/Puertolist";
+import Createpuerto from "./pages/puertos/Createpuerto";
+
 
 function App() {
   return (
@@ -27,6 +32,10 @@ function App() {
           <Route exact path="/userexterno" element={<UserExterno />} />
           <Route exact path="/users" element={<Users/>} />
           <Route exact path="/Createuser" element={<Createuser/>} />
+          <Route exact path="/Orderlist" element={<Orderlist/>} />
+          <Route exact path="/Createorden" element={<Createorden/>} />
+          <Route exact path="/Puertolist" element={<Puertolist/>} />
+          <Route exact path="/Createpuerto" element={<Createpuerto/>} />
         </Routes>
       </div>
     </BrowserRouter>

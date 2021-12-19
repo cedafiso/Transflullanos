@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import image from "../auth/img/login.svg";
 import logoR from "../auth/img/logo.png";
+import Sidebar from "../dashboard/components/Sidebar";
 import React, { useRef, useState } from "react";
 
 
@@ -101,75 +102,105 @@ function limpiar() {
     }
 
   return (
-    <div className="content-all-registrer">
-      <div className="ctn-form">
-        <img src={logoR} alt="Logo transflullanos" className="logo" />
-        <h1 id="titulo_register">Usuarios</h1>
-        <form>
-          <div class="row">
-            <div class="col">
-            <label htmlFor="">Número de Identificación</label>
-            <input ref={idNumberRef} type="text" required />
+    <React.Fragment>
+      <div id="wrapper">
+        {/* <!-- Sidebar --> */}
+        <Sidebar />
+        {/* <!-- End of Sidebar --> */}
+
+        {/* <!-- Content Wrapper --> */}
+        <div id="content-wrapper" className="d-flex flex-column">
+          {/* <!-- Main Content --> */}
+          <div id="content">
+            
+
+            {/* <!-- Begin Page Content --> */}
+
+            <div className="container-fluid">
+
+              {/* <!-- Page Heading --> */}
+              <div className="content-all-registrer">
+                    <div className="">
+                      <img src={logoR} alt="Logo transflullanos" className="logo" />
+                      <h1  id="titulo_register">Usuarios</h1>
+                      <form>
+                        <div class="row">
+                          <div class="col">
+                          <label htmlFor="">Número de Identificación</label>
+                          <input ref={idNumberRef} type="text" required />
+                          </div>
+                          <div class="col">
+                          <label htmlFor="">Nombres</label>
+                          <input ref={firstNameRef} type="text" required id="name-text" />             
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                          <label htmlFor="">Apellidos</label>
+                          <input ref={lastNameRef} type="text" required />
+                          </div>
+                          <div class="col">
+                          <label htmlFor="">Teléfono</label>
+                          <input ref={cellphoneRef} type="number" />                    
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                          <label htmlFor="">Correo electrónico</label>
+                          <input ref={emailRef} type="email" required />
+                          </div>
+                          <div class="col">
+                          <label htmlFor=""> Rol</label>
+                          <input ref={rolRef} type="email" required />                     
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                          <label htmlFor="">Contraseña</label>
+                          <input ref={passwordRef} type="password" required />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                          <br/>
+                          <button className="btn btn-primary" type="button" onClick={consultar}>Consultar</button>
+                          </div>
+                          <br/>
+                          <div class="col">
+                          <br/>
+                            <button className="btn btn-primary" type="button"  onClick={editar} >Modificar</button>           
+                          </div> 
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                          <br/>
+                          <input className="btn btn-primary" type="button"  onClick={guardar} value="Guardar" />                   
+                          </div>
+                          <div class="col">
+                          <br/>
+                            <button className="btn btn-primary" type="button" onClick={borrar}>eliminar</button>           
+                          </div> 
+                        </div>
+                      </form>
+                    
+                    </div>
+                                
+                  </div>  
+             
+              {/* Content page */}
+              
+
+              {/* <!-- Content Row --> */}
             </div>
-            <div class="col">
-            <label htmlFor="">Nombres</label>
-            <input ref={firstNameRef} type="text" required id="name-text" />             
-            </div>
+            {/* <!-- /.container-fluid --> */}
           </div>
-          <div class="row">
-            <div class="col">
-            <label htmlFor="">Apellidos</label>
-            <input ref={lastNameRef} type="text" required />
-            </div>
-            <div class="col">
-            <label htmlFor="">Teléfono</label>
-            <input ref={cellphoneRef} type="number" />                    
-            </div>
-          </div>
-           <div class="row">
-            <div class="col">
-            <label htmlFor="">Correo electrónico</label>
-            <input ref={emailRef} type="email" required />
-            </div>
-            <div class="col">
-            <label htmlFor=""> Rol</label>
-            <input ref={rolRef} type="email" required />                     
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-            <label htmlFor="">Contraseña</label>
-            <input ref={passwordRef} type="password" required />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-            <br/>
-            <button className="btn btn-primary" type="button" onClick={consultar}>Consultar</button>
-            </div>
-            <br/>
-            <div class="col">
-            <br/>
-              <button className="btn btn-primary" type="button"  onClick={editar} >Modificar</button>           
-            </div> 
-          </div>
-          <div class="row">
-          <div class="col">
-            <br/>
-            <input className="btn btn-primary" type="button"  onClick={guardar} value="Guardar" />                   
-            </div>
-            <div class="col">
-            <br/>
-              <button className="btn btn-primary" type="button" onClick={borrar}>eliminar</button>           
-            </div> 
-          </div>
-        </form>
-       
+          {/* <!-- End of Main Content --> */}
+        </div>
+        {/* <!-- End of Content Wrapper --> */}
       </div>
-      
-      
-    </div>
+    </React.Fragment>
   );
 };
 
 export default Createuser;
+

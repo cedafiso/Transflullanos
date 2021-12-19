@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
+import barco from "../auth/img/29697.svg";
 
 const Dashboard = () => {
   return (
@@ -22,8 +23,19 @@ const Dashboard = () => {
             <div className="container-fluid">
               {/* <!-- Page Heading --> */}
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
+                <h1 className="h3 mb-0 text-gray-800" padding-right= "0.5" >Dashboard</h1>
               </div>
+              <div className="content-all-registrer">
+                
+              <div className="ctn-form">
+                
+              <h1>Bienvenido a Transfullanos</h1>
+              </div>
+              <div className="ctn-image">
+              <img src={barco} alt="" className="" height="380" width="630" />
+              </div>
+            
+             </div>
 
               {/* Content page */}
               {/* <!-- Content Row --> */}

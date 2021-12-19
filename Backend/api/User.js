@@ -245,4 +245,11 @@ router.post("/consultar", function (req, res) {
     })
 });
 
+router.delete('/borrar/:id', (req, res) => {
+    const id = req.params.id;
+    User.deleteOne({_id: id}).then((result)=>{
+        res.status(200).json({result})
+    })
+})
+
 module.exports = router;

@@ -1,6 +1,6 @@
 
-import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
+import Sidebar from "../dashboard/components/Sidebar";
+import Topbar from "../dashboard/components/Topbar";
 import React, { useRef, useState } from "react";
 
 const UserExterno = () => {
@@ -33,6 +33,59 @@ const UserExterno = () => {
 }
 
 
+function consultar() {
+  const idNumber = idNumberRef.current.value;
+  fetch("http://localhost:3031/order/consultar",{
+    method: 'POST', // or 'PUT'
+    body:JSON.stringify({idNumber}), // data can be `string` or {object}!
+    headers:{
+      'Content-Type': 'application/json'
+  }})
+      .then(res => res.json())
+      .then(res => {
+        origenRef.current.value = res.data.origen;
+        destinoRef.current.value = res.data.destino;
+        clienteRef.current.value = res.data.cliente;
+        createDateRef.current.value = res.data.createData;
+        
+        
+      })
+      
+      .catch(error => alert(error));
+}
+
+function borrar() {
+
+  const idNumber = idNumberRef.current.value;
+  // Hacer petición AJAX (fecth) para consumir API
+  fetch("http://localhost:3031/order/delete", {
+
+    headers: { "content-type": "application/json" },
+    method: "POST",
+    body: JSON.stringify({ idNumber })
+      })
+      .then(data => data.json()) // Obtener los datos
+      .then(data =>{ alert(data.message); limpiar()}) // Mostrar mensaje OK    :) 
+      .catch(error => alert(error));  // Mostrar mensaje error :(
+  }
+  function editar() {
+    // Capturar los datos
+    const idNumber = idNumberRef.current.value;
+    const cliente= clienteRef.current.value;
+    const origen = origenRef.current.value;
+    const destino = destinoRef.current.value;
+    const createDate = createDateRef.current.value;
+    
+    // Hacer petición AJAX (fecth) para consumir API
+    fetch("http://localhost:3031/order/edit", {
+        headers: { "content-type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ idNumber, cliente,  origen, destino, createDate  })
+    })
+        .then(data => data.json()) // Obtener los datos
+        .then(data =>{ alert(data.message); limpiar()})  // Mostrar mensaje OK    :) 
+        .catch(error => alert(error));  // Mostrar mensaje error :(
+}
 
 function limpiar() {
    idNumberRef.current.value = "";
@@ -71,63 +124,54 @@ function limpiar() {
                   <div class="col">
                    
                     <div class="form-outline">
-                    <label htmlFor="">Destino</label>
-                      <select name="" id="">
-                      <option ref={destinoRef} value="Puerto A - Barranquilla">Puerto A - Barranquilla</option>
-                      <option ref={destinoRef} value="Puerto B- Mar de Plata">Puerto B - Mar de Plata</option>
-                      <option ref={destinoRef} value="Puerto C - Chocó">Puerto C - Chocó</option>
-                      </select>
+                    <label class="form-label" for="form8Example3">Origen</label>
+                    <input type="text" ref={ origenRef} id="form8Example3" class="form-control" />
                     </div>
                   </div>
                   <div class="col">
-                    
                     <div class="form-outline">
-                    <label htmlFor="">Origen</label>
-                    <select name="" id="">
-                      <option ref={origenRef} value="Puerto D - El Concord">Puerto D - El Concord</option>
-                      <option ref={origenRef} value="Puerto E- Malambo">Puerto E- Malambo</option>
-                      <option ref={origenRef}  value="Puerto F - Montevideo">Puerto F - Montevideo</option>
-                    </select>
+                    <label class="form-label" for="form8Example3">Origen</label>
+                      <input type="text" ref={destinoRef} id="form8Example3" class="form-control" />
                     </div>
                   </div>
                 </div>
-
-                <hr />
+                <br/>
 
                 <div class="row">
                   <div class="col">
                     
                     <div class="form-outline">
-                      <input type="text" ref={clienteRef} id="form8Example3" class="form-control" />
                       <label class="form-label" for="form8Example3">Cliente</label>
+                      <input type="text" ref={clienteRef} id="form8Example3" class="form-control" />
                     </div>
                   </div>
                   <div class="col">
                     
                     <div class="form-outline">
+                    <label class="form-label" for="form8Example4">Numero de Orden</label>
                       <input type="text" ref={idNumberRef} id="form8Example4" class="form-control" />
-                      <label class="form-label" for="form8Example4">Numero de Orden</label>
                     </div>
                   </div>
                   <div class="col">
                     
                     <div class="form-outline">
+                       <label class="form-label" for="form8Example5">Fecha</label>
                       <input type="date" ref={createDateRef}  id="form8Example5" class="form-control" />
-                      <label class="form-label" for="form8Example5">Fecha</label>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                 <div class="col">
                   <br/>
-                <button className="btn btn-primary" type="button" >Consultar</button>
+                <button className="btn btn-primary" type="button" onClick={consultar}>Consultar</button>
                 </div>
                 <br/>
                 <div class="col">
                 <br/>
-                <button className="btn btn-primary" type="button"  >Modificar</button>           
+                <button className="btn btn-primary" type="button" onClick={editar} >Modificar</button>           
                 </div> 
                 </div>
+                
                 <div class="row">
                 <div class="col">
                 <br/>
@@ -135,7 +179,7 @@ function limpiar() {
                 </div>
                 <div class="col">
                 <br/>
-                <button className="btn btn-primary" type="button" >eliminar</button>           
+                <button className="btn btn-primary" type="button" onClick={borrar}>eliminar</button>           
                 </div> 
               </div>
                 </form>         

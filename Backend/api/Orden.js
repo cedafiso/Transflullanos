@@ -8,7 +8,7 @@ const Orden = require('../models/Orden');
 
 
 //Create order
-router.post('/create', verify,  (req, res) => {
+router.post('/create',   (req, res) => {
     let { idNumber, cliente, origen, destino, createDate } = req.body;
     idNumber = idNumber.trim();
     cliente = cliente.trim();
@@ -98,6 +98,27 @@ router.post('/search', verify, (req, res) => {
     }
 })
 
+router.post("/consultar", function (req, res) {
+    // Captura el nombre del producto a buscar
+    const { idNumber } = req.body; 
+    // Busca el producto en la BD
+    Orden.findOne({ idNumber }, function (error, id) {
+        // Si hubo error
+        if (error) {
+            res.send({ estado: "error", msg: "Orden NO encontrada" })
+            return false;
+        } else {
+            if (idNumber !== null) {
+                res.send({ estado: "ok", msg: "Orden Encontrada", data: id })
+            } else {
+                res.send({ estado: "error", msg: "Orden NO encontrada" })
+            }
+        }
+        
+    }) 
+    
+});
+
 router.post('/edit', (req, res) => {
     let { idNumber, cliente, origen, destino, createDate } = req.body;
     idNumber = idNumber.trim();
@@ -132,7 +153,7 @@ router.post('/edit', (req, res) => {
     }
 })
 
-router.post('/delete', verify, (req, res) => {
+router.post('/delete',  (req, res) => {
     let{ idNumber } = req.body;
     idNumber = idNumber.trim();
 
@@ -149,4 +170,22 @@ router.post('/delete', verify, (req, res) => {
     })
 })
 
+router.get("/lista", async (req, res) => {
+    try {
+      const order = await Orden.find();
+      res.json(order);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+
+
+  router.delete('/borrar/:id', (req, res) => {
+    const id = req.params.id;
+    Orden.deleteOne({_id: id}).then((result)=>{
+        res.status(200).json({result})
+    })
+})
+
 module.exports = router;
+
