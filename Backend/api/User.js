@@ -251,5 +251,6 @@ router.delete('/borrar/:id', (req, res) => {
         res.status(200).json({result})
     })
 })
-
+ 
+///prueba git 
 module.exports = router;
