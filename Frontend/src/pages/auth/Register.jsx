@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import image from "./img/login.svg";
 import logoR from "./img/logo.png";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 const Register = () => {
-
   const idNumberRef = useRef();
   const firstNameRef = useRef();
   const lastNameRef = useRef();
@@ -12,7 +11,6 @@ const Register = () => {
   const emailRef = useRef();
   const rolRef = useRef();
   const passwordRef = useRef();
-  
 
   function guardar() {
     const idNumber = idNumberRef.current.value;
@@ -24,14 +22,23 @@ const Register = () => {
     const password = passwordRef.current.value;
 
     fetch("http://localhost:3031/user/signup", {
-        headers: { "content-type": "application/json" },
-        method: "POST",
-        body: JSON.stringify({ idNumber, firstName, lastName, cellphone, email, rol, password })
-    }).then(res => res.json())
-        .then(res => {
-            alert(res.message);
-        })
-}
+      headers: { "content-type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        idNumber,
+        firstName,
+        lastName,
+        cellphone,
+        email,
+        rol,
+        password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        alert(res.message);
+      });
+  }
 
   return (
     <div className="content-all-registrer">
@@ -56,10 +63,16 @@ const Register = () => {
           <select defaultValue={"DEFAULT"} name="rol" required>
             <option value="DEFAULT" disabled selected={false}>
               Elija una opción
-            </option >
-            <option ref={rolRef} value="Administrador">Administrador</option>
-            <option ref={rolRef} value="Vendedor">Vendedor</option>
-            <option ref={rolRef} value="Operario">Operario</option>
+            </option>
+            <option ref={rolRef} value="Administrador">
+              Administrador
+            </option>
+            <option ref={rolRef} value="Vendedor">
+              Vendedor
+            </option>
+            <option ref={rolRef} value="Operario">
+              Operario
+            </option>
           </select>
           <label htmlFor="">Contraseña</label>
           <input ref={passwordRef} type="password" required />

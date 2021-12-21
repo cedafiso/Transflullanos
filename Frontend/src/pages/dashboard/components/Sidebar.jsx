@@ -2,14 +2,12 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-
   function logout() {
     localStorage.removeItem("token");
     // const navigate = useNavigate()
     // navigate('/');
     window.location.href = "/";
-}
-
+  }
 
   return (
     <React.Fragment>
@@ -47,7 +45,6 @@ const Sidebar = () => {
           <NavLink
             className="nav-link collapsed"
             to="/users"
-            
             data-target="#collapseTwo"
             aria-expanded="true"
             aria-controls="collapseTwo"
@@ -57,8 +54,8 @@ const Sidebar = () => {
             <span>Usuarios</span>
           </NavLink>
         </li>
-         
-         {/* <!-- data-toggle="collapse */}
+
+        {/* <!-- data-toggle="collapse */}
         <li className="nav-item">
           <NavLink
             className="nav-link collapsed"
@@ -69,14 +66,15 @@ const Sidebar = () => {
             activeclassname="text-white"
           >
             <i className="far fa-clipboard"></i>
-            <span>Ordenes</span>
+            <span>Usuario externo</span>
           </NavLink>
           <div
             id="collapseUtilities"
             class="collapse show"
             aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar"
-          >{/* <!-- Divider --> 
+          >
+            {/* <!-- Divider --> 
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Opciones</h6>
               <Link class="collapse-item" to="/">
@@ -96,21 +94,21 @@ const Sidebar = () => {
           <NavLink
             className="nav-link collapsed"
             to="/Puertolist"
-            
             data-target="#collapseUtilities"
             aria-expanded="true"
             aria-controls="collapseUtilities"
             activeclassname="text-white"
           >
             <i className="fa fa-ship"></i>
-            <span>Puertos</span>
+            <span>Usuario interno</span>
           </NavLink>
           <div
             id="collapseUtilities"
             class="collapse show"
             aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar"
-          >{/* <!-- Divider --> 
+          >
+            {/* <!-- Divider --> 
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Opciones</h6>
               <Link class="collapse-item" to="/">
@@ -139,7 +137,9 @@ const Sidebar = () => {
             data-target="#logoutModal"
           >
             <i className="fas fa-sign-out-alt"></i>
-            <span type="button" onClick={logout}>Cerrar sesión</span>
+            <span type="button" onClick={logout}>
+              Cerrar sesión
+            </span>
           </Link>
         </li>
       </ul>

@@ -8,7 +8,7 @@ const Orden = require('../models/Orden');
 
 
 //Create order
-router.post('/create',   (req, res) => {
+router.post('/create', (req, res) => {
     let { idNumber, cliente, origen, destino, createDate } = req.body;
     idNumber = idNumber.trim();
     cliente = cliente.trim();
@@ -27,13 +27,13 @@ router.post('/create',   (req, res) => {
             message: "Fecha de registro no valida"
         })
     } else {
-        Orden.find({idNumber}).then(result => {
-            if(result.length){
+        Orden.find({ idNumber }).then(result => {
+            if (result.length) {
                 res.json({
                     status: "FALLO",
                     message: "Ya existe una orden con este id"
                 })
-            }else{
+            } else {
                 const newOrden = new Orden({
                     idNumber,
                     cliente,
@@ -60,47 +60,47 @@ router.post('/create',   (req, res) => {
 
 //Search Order
 router.post('/search', verify, (req, res) => {
-    let{idNumber = "", cliente = "", origen = "", destino = ""} = req.body;
+    let { idNumber = "", cliente = "", origen = "", destino = "" } = req.body;
     idNumber = idNumber.trim();
     cliente = cliente.trim();
     origen = origen.trim();
     destino = destino.trim();
-    let value = {cliente, origen, destino};
+    let value = { cliente, origen, destino };
     Object.keys(value).forEach((k) => obj[k] == null && delete obj[k]);
 
-    if(cliente == "" && origen == "" && destino == "" && idNumber == ""){
+    if (cliente == "" && origen == "" && destino == "" && idNumber == "") {
         res.json({
             status: "FALLO",
             message: "Campos vacios"
         });
-    }else{
+    } else {
         Orden.find(value)
-        .then(data =>{
-            if(data.length){
-                res.json({
-                    status: 'EXITOSO',
-                    message: "Se encontro la orden",
-                    data
-                })
-            }else{
+            .then(data => {
+                if (data.length) {
+                    res.json({
+                        status: 'EXITOSO',
+                        message: "Se encontro la orden",
+                        data
+                    })
+                } else {
+                    res.json({
+                        status: 'FALLO',
+                        message: "No se encontro la orden"
+                    })
+                }
+            })
+            .catch(err => {
                 res.json({
                     status: 'FALLO',
-                    message: "No se encontro la orden"
+                    message: "Se encontro un error mientras se buscaba la orden"
                 })
-            }
-        })
-        .catch(err => {
-            res.json({
-                status: 'FALLO',
-                message: "Se encontro un error mientras se buscaba la orden"
             })
-        })
     }
 })
 
 router.post("/consultar", function (req, res) {
     // Captura el nombre del producto a buscar
-    const { idNumber } = req.body; 
+    const { idNumber } = req.body;
     // Busca el producto en la BD
     Orden.findOne({ idNumber }, function (error, id) {
         // Si hubo error
@@ -114,9 +114,9 @@ router.post("/consultar", function (req, res) {
                 res.send({ estado: "error", msg: "Orden NO encontrada" })
             }
         }
-        
-    }) 
-    
+
+    })
+
 });
 
 router.post('/edit', (req, res) => {
@@ -138,7 +138,7 @@ router.post('/edit', (req, res) => {
             message: "Fecha de registro no valida"
         })
     } else {
-        Orden.updateOne({ idNumber }, { $set: { cliente, origen, destino, createDate} }).then(result => {
+        Orden.updateOne({ idNumber }, { $set: { cliente, origen, destino, createDate } }).then(result => {
             res.json({
                 status: "EXITOSO",
                 message: "Update exitoso",
@@ -153,13 +153,13 @@ router.post('/edit', (req, res) => {
     }
 })
 
-router.post('/delete',  (req, res) => {
-    let{ idNumber } = req.body;
+router.post('/delete', (req, res) => {
+    let { idNumber } = req.body;
     idNumber = idNumber.trim();
 
-    Orden.deleteOne({idNumber}).then(result =>{
+    Orden.deleteOne({ idNumber }).then(result => {
         res.json({
-            status : "EXITOSA",
+            status: "EXITOSA",
             message: "Se ha eliminado la orden con exito"
         })
     }).catch(err => {
@@ -172,18 +172,18 @@ router.post('/delete',  (req, res) => {
 
 router.get("/lista", async (req, res) => {
     try {
-      const order = await Orden.find();
-      res.json(order);
+        const order = await Orden.find();
+        res.json(order);
     } catch (err) {
-      res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err.message });
     }
-  });
+});
 
 
-  router.delete('/borrar/:id', (req, res) => {
+router.delete('/borrar/:id', (req, res) => {
     const id = req.params.id;
-    Orden.deleteOne({_id: id}).then((result)=>{
-        res.status(200).json({result})
+    Orden.deleteOne({ _id: id }).then((result) => {
+        res.status(200).json({ result })
     })
 })
 
